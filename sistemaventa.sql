@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-05-2025 a las 20:18:33
+-- Tiempo de generación: 13-05-2025 a las 17:24:31
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -52,7 +52,7 @@ CREATE TABLE `tb_almacen` (
 INSERT INTO `tb_almacen` (`id_producto`, `codigo`, `nombre`, `descripcion`, `stock`, `stock_minimo`, `stock_maximo`, `precio_compra`, `precio_venta`, `fecha_ingreso`, `imagen`, `id_usuario`, `id_categoria`, `fyh_creacion`, `fyh_actualizacion`) VALUES
 (1, 'P-00001', 'AUDIFONOS', 'INALAMBRICO', 102, 20, 150, '12', '14', '2025-05-06', '2025-05-06-04-36-41__audifonos.jpg', 1, 7, '2025-05-06 04:36:41', '0000-00-00 00:00:00'),
 (2, 'P-00002', 'RESERVADO', 'VINO TINTO', 112, 10, 70, '5', '7', '2025-05-07', '2025-05-07-12-38-01__OIP (2).jpg', 1, 8, '2025-05-07 12:38:01', '0000-00-00 00:00:00'),
-(3, 'P-00003', 'COCA COLA', 'DE LATA 350 ml', 102, 15, 60, '14', '18', '2025-05-07', '2025-05-07-12-39-05__OIP (1).jpg', 1, 9, '2025-05-07 12:39:05', '0000-00-00 00:00:00');
+(3, 'P-00003', 'COCA COLA', 'DE LATA 350 ml', 40, 15, 60, '14', '18', '2025-05-07', '2025-05-07-12-39-05__OIP (1).jpg', 1, 9, '2025-05-07 12:39:05', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -80,7 +80,8 @@ INSERT INTO `tb_categorias` (`id_categoria`, `nombre_categoria`, `fyh_creacion`,
 (6, 'SOLIDOS', '2025-05-01 09:09:27', '0000-00-00 00:00:00'),
 (7, 'ELECTRONICOS', '2025-05-02 11:03:06', '0000-00-00 00:00:00'),
 (8, 'LICORES', '2025-05-07 12:36:41', '0000-00-00 00:00:00'),
-(9, 'BEBIDAS', '2025-05-07 12:37:01', '0000-00-00 00:00:00');
+(9, 'BEBIDAS', '2025-05-07 12:37:01', '0000-00-00 00:00:00'),
+(10, 'materia prima', '2025-05-12 02:30:04', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -110,11 +111,9 @@ INSERT INTO `tb_compras` (`id_compra`, `id_producto`, `nro_compra`, `fecha_compr
 (1, 1, 1, '2025-05-06 22:36:52', 1, 'FACTURA', 2, '200', 51, '2025-05-06 22:36:52', '2025-05-06 22:36:52'),
 (2, 1, 2, '2025-05-08 00:00:00', 1, 'FACTURA NRO 3452', 1, '5000', 50, '2025-05-08 12:53:09', '0000-00-00 00:00:00'),
 (3, 3, 3, '2025-05-08 00:00:00', 1, 'NOTA DE ENTREGA NRO 2341', 1, '452', 50, '2025-05-08 12:59:24', '0000-00-00 00:00:00'),
-(4, 3, 4, '2025-05-08 00:00:00', 1, 'FACTURA NRO 4567', 1, '452', 60, '2025-05-08 01:26:12', '0000-00-00 00:00:00'),
 (5, 2, 5, '2025-05-08 00:00:00', 5, 'FACTURA NRO 4587', 1, '654', 60, '2025-05-08 01:31:53', '0000-00-00 00:00:00'),
 (6, 1, 6, '2025-05-08 00:00:00', 5, 'FACTURA NRO 6789', 1, '789', 2, '2025-05-08 01:32:54', '0000-00-00 00:00:00'),
-(7, 2, 7, '2025-05-08 00:00:00', 5, 'FACTURA NRO 7567', 1, '789', 2, '2025-05-08 01:33:38', '0000-00-00 00:00:00'),
-(8, 3, 8, '2025-05-08 00:00:00', 1, 'FACTURA NRO 7534', 1, '789', 2, '2025-05-08 01:34:09', '0000-00-00 00:00:00');
+(7, 2, 7, '2025-05-08 00:00:00', 5, 'FACTURA NRO 7567', 1, '789', 2, '2025-05-08 01:33:38', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -188,7 +187,8 @@ CREATE TABLE `tb_usuarios` (
 
 INSERT INTO `tb_usuarios` (`id_usuario`, `nombres`, `email`, `password_user`, `token`, `id_rol`, `fyh_creacion`, `fyh_actualizacion`) VALUES
 (1, 'Henrry Flores', 'henryf12@gmail.com', '$2y$10$6tiE3UnDTozXv7VjTOu2kukeh0ZlFpxlHvzbp8nHmsjtLAAl6mlJ.', '', 1, '2025-04-30 19:15:39', '2025-04-30 19:15:39'),
-(2, 'Pablo Lopez', 'pablo@gmail.com', '$2y$10$wVHv8QQKmLGKtw3y8CZtC.dqo/r0pEX889Jfh34HADjDEFghWLzYG', '', 2, '2025-05-02 10:51:13', '0000-00-00 00:00:00');
+(2, 'Pablo Lopez', 'pablo@gmail.com', '$2y$10$wVHv8QQKmLGKtw3y8CZtC.dqo/r0pEX889Jfh34HADjDEFghWLzYG', '', 2, '2025-05-02 10:51:13', '0000-00-00 00:00:00'),
+(3, 'Shebath Parra', 'shebath@gmail.com', '$2y$10$GVY0VDIe0mX3g36dXxDvq.ZqiNLp9qMSU7ciQsaax4Pum/R/RAXwq', '', 1, '2025-05-12 12:02:52', '0000-00-00 00:00:00');
 
 --
 -- Índices para tablas volcadas
@@ -250,7 +250,7 @@ ALTER TABLE `tb_almacen`
 -- AUTO_INCREMENT de la tabla `tb_categorias`
 --
 ALTER TABLE `tb_categorias`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_compras`
@@ -274,7 +274,7 @@ ALTER TABLE `tb_roles`
 -- AUTO_INCREMENT de la tabla `tb_usuarios`
 --
 ALTER TABLE `tb_usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas

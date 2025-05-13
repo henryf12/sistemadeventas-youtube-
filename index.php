@@ -10,6 +10,7 @@ include('app/controllers/roles/listado_de_roles.php');
 include('app/controllers/almacen/listado_de_productos.php');
 include('app/controllers/categorias/listado_de_categoria.php');
 include('app/controllers/proveedores/listado_de_proveedores.php');
+include('app/controllers/compras/listado_de_compras.php');
 
 ?>
 
@@ -160,6 +161,31 @@ include('app/controllers/proveedores/listado_de_proveedores.php');
             </a>
           </div>
         </div>
+
+        <div class="col-lg-3 col-6">
+          <!-- small card -->
+          <div class="small-box bg-success">
+            <div class="inner">
+              <?php
+              $contador_nro_compra = 0;
+              foreach ($compras_datos as $compras_dato) {
+                $contador_nro_compra = $contador_nro_compra + 1;
+              } ?>
+
+              <h3><?php echo $contador_nro_compra; ?></h3>
+              <p>Compras Registradas</p>
+            </div>
+            <a href="<?php echo $URL; ?>/compras/create.php">
+              <div class="icon">
+                <i class="nav-icon fas fa-cart-plus"></i>
+              </div>
+            </a>
+            <a href="<?php echo $URL; ?>/compras" class="small-box-footer">
+              Mas Informacion <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+        <h5>viene el video 77</h5>
         <!-- ./col -->
       </div>
 
